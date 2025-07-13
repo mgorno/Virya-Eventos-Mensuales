@@ -3,87 +3,131 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Virya Yoga Studio - Novedades del Mes</title>
+  <title>Virya Yoga Studio – Novedades de Julio</title>
   <link rel="icon" href="assets/img/logo/LogoViryaPestaña.png" type="image/png" />
+  <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+  <!-- Fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Montserrat:wght@300;500&display=swap" rel="stylesheet" />
+  <!-- AOS (animaciones) -->
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
   <style>
+    :root {
+      --verde-claro: #d7ede2;
+      --verde-medio: #a1cfc0;
+      --gris-claro: #fdfdfc;
+      --gris-oscuro: #556b5d;
+      --tipografia-titulo: 'Cormorant Garamond', serif;
+      --tipografia-texto: 'Montserrat', sans-serif;
+    }
+    * {
+      scroll-behavior: smooth;
+    }
     body {
-      background: linear-gradient(to bottom, #fef9f4 0%, #e8f3ee 100%);
-      font-family: 'Cormorant Garamond', serif;
+      margin: 0;
+      background: linear-gradient(135deg, var(--gris-claro), #e8f3ee);
+      font-family: var(--tipografia-texto);
+      color: var(--gris-oscuro);
     }
-
+    /* Navbar minimal */
     .navbar {
-      background-color: #d7ede2;
-      border-bottom: 4px solid #b4d8ca;
+      background: var(--gris-claro);
+      border-bottom: 1px solid var(--verde-medio);
+      padding: 1rem 2rem;
     }
-
     .navbar-brand img {
-      max-height: 50px;
+      height: 45px;
+      transition: transform .3s;
     }
-
+    .navbar-brand img:hover {
+      transform: scale(1.1);
+    }
+    /* Hero */
     .hero {
-      background-color: #d7ede2;
-      padding: 3rem 1rem;
       text-align: center;
-      border-bottom: 5px solid #c1dbd2;
+      padding: 4rem 1rem;
+      font-family: var(--tipografia-titulo);
+      color: var(--gris-oscuro);
     }
-
     .hero h1 {
-      font-size: 2.8rem;
-      margin-bottom: 0.5rem;
-      color: #556b5d;
+      font-size: 3rem;
+      margin-bottom: .5rem;
     }
-
-    .hero p {
-      font-size: 1.4rem;
-      color: #7b9689;
+    .hero p.lead {
+      font-size: 1.25rem;
+      font-weight: 300;
+      color: var(--gris-oscuro);
     }
-
-    .novedad {
-      border-left: 5px solid #a1cfc0;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
+    /* Novedades en cards */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem 0;
+    }
+    .card-novedad {
       background: white;
-      box-shadow: 0 0 15px rgba(0,0,0,0.05);
-      border-radius: 12px;
-      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      border: none;
+      border-left: 4px solid var(--verde-medio);
+      border-radius: .75rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,.05);
+      overflow: hidden;
+      transition: transform .4s ease, box-shadow .4s ease;
+      font-family: var(--tipografia-texto);
     }
-
-    .novedad:hover {
-      transform: scale(1.01);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    .card-novedad:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,.1);
     }
-
+    .card-novedad .card-body {
+      padding: 1.5rem;
+    }
+    .card-novedad h5 {
+      font-family: var(--tipografia-titulo);
+      font-size: 1.3rem;
+      margin-bottom: .75rem;
+      color: var(--gris-oscuro);
+    }
+    .card-novedad p {
+      font-size: .95rem;
+      line-height: 1.5;
+      color: #555;
+    }
+    /* Footer */
     footer {
-      text-align: center;
+      background: var(--gris-claro);
       padding: 2rem;
-      font-size: 0.9rem;
-      color: #666;
-      border-top: 1px solid #ddd;
-      background-color: #fdfdfc;
+      text-align: center;
+      font-size: .9rem;
+      border-top: 1px solid var(--verde-medio);
     }
-
+    footer a {
+      text-decoration: none;
+      color: var(--gris-oscuro);
+      transition: color .3s;
+    }
+    footer a:hover {
+      color: var(--verde-medio);
+    }
+    /* Botón WhatsApp */
     .whatsapp-btn {
       position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background-color: #25d366;
-      color: white;
-      border-radius: 50%;
+      bottom: 2rem;
+      right: 2rem;
       width: 60px;
       height: 60px;
+      background: #25d366;
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.8rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      z-index: 999;
-      transition: transform 0.2s ease;
+      box-shadow: 0 6px 20px rgba(0,0,0,.2);
+      transition: transform .3s;
+      z-index: 1000;
     }
-
     .whatsapp-btn:hover {
       transform: scale(1.1);
     }
@@ -91,64 +135,61 @@
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg sticky-top">
-    <div class="container justify-content-between">
-      <a class="navbar-brand d-flex align-items-center" href="#">
-        <img src="assets/img/logo/IMG_9452.PNG" alt="Logo Virya" />
-      </a>
-      <span class="fw-semibold text-muted">Novedades del mes</span>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="d-flex justify-content-between align-items-center">
+      <a href="#" class="navbar-brand"><img src="assets/img/logo/IMG_9452.PNG" alt="Virya Yoga Logo"></a>
+      <span class="fw-semibold text-muted">Novedades de Julio</span>
     </div>
   </nav>
 
-  <!-- Hero -->
-  <section class="hero">
+  <!-- HERO -->
+  <section class="hero" data-aos="fade-down">
     <h1>Virya Yoga Studio</h1>
-    <p>✨ Novedades de julio ✨</p>
-    <p><strong>Eventos, talleres y experiencias mensuales</strong></p>
+    <p class="lead">✨ Eventos, talleres y experiencias mensuales ✨</p>
   </section>
 
-  <!-- Novedades -->
-  <div class="container my-5">
-    <div class="novedad" data-aos="fade-up">
-      <h4><i class="bi bi-moon-stars-fill me-2 text-secondary"></i>🌕 Taller de Luna Llena - Domingo 21/07</h4>
-      <p>Un espacio para soltar, meditar y conectar con tu interior. Meditación guiada, yoga suave y sonido sanador.</p>
-    </div>
-
-    <div class="novedad" data-aos="fade-up" data-aos-delay="200">
-      <h4><i class="bi bi-flower1 me-2 text-success"></i>🧘 Yoga Restaurativo - Miércoles 19:00</h4>
-      <p>Ideal para relajar cuerpo y mente. Clase suave, profunda y con cupos limitados. No requiere experiencia previa.</p>
-    </div>
-
-    <div class="novedad" data-aos="fade-up" data-aos-delay="400">
-      <h4><i class="bi bi-music-note-beamed me-2 text-info"></i>🎶 Sound Healing con Cuencos - Sábado 27/07</h4>
-      <p>Una experiencia de inmersión sonora para desbloquear emociones y alcanzar un estado de relajación profunda.</p>
+  <!-- CARDS DE NOVEDADES -->
+  <div class="container">
+    <div class="cards">
+      <div class="card-novedad" data-aos="fade-up">
+        <div class="card-body">
+          <h5><i class="bi bi-moon-stars-fill me-2"></i>Taller de Luna Llena<br><small>Domingo 21/07</small></h5>
+          <p>Explorá meditación guiada, yoga suave y ceremonia de sonido para soltar y reconectar con tu esencia.</p>
+        </div>
+      </div>
+      <div class="card-novedad" data-aos="fade-up" data-aos-delay="150">
+        <div class="card-body">
+          <h5><i class="bi bi-flower1 me-2"></i>Yoga Restaurativo<br><small>Miércoles 19:00</small></h5>
+          <p>Clase suave y profunda para liberar tensiones, relajar cuerpo y mente. Cupos limitados.</p>
+        </div>
+      </div>
+      <div class="card-novedad" data-aos="fade-up" data-aos-delay="300">
+        <div class="card-body">
+          <h5><i class="bi bi-music-note-beamed me-2"></i>Sound Healing<br><small>Sábado 27/07</small></h5>
+          <p>Inmersión sonora con cuencos tibetanos para desbloquear emociones y alcanzar un estado de paz profunda.</p>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer>
-    <p><strong>Virya Yoga Studio · Ecuador 1511 · Recoleta</strong></p>
-    <p><i class="bi bi-envelope-fill me-2"></i>studio.virya.yoga@gmail.com</p>
-    <p><i class="bi bi-whatsapp me-2"></i>+54 9 11 6788 5544</p>
-    <p>
-      <a href="https://www.instagram.com/virya.yogastudio/" class="text-dark text-decoration-none" target="_blank">
-        <i class="bi bi-instagram me-2"></i>@virya.yogastudio
-      </a>
-    </p>
-  </footer>
-
-  <!-- WhatsApp -->
-  <a href="https://wa.me/5491167885544?text=Hola!%20Estoy%20interesado%20en%20las%20actividades%20de%20Virya%20Yoga%20Studio" 
-     class="whatsapp-btn" target="_blank" aria-label="WhatsApp">
-    <i class="bi bi-whatsapp"></i>
+  <!-- WHATSAPP FLOAT -->
+  <a href="https://wa.me/5491167885544?text=¡Hola!%20Quiero%20info%20sobre%20las%20novedades%20de%20Virya%20Yoga%20Studio" class="whatsapp-btn" target="_blank" aria-label="WhatsApp">
+    <i class="bi bi-whatsapp fs-3 text-white"></i>
   </a>
 
-  <!-- Scripts -->
+  <!-- FOOTER -->
+  <footer data-aos="fade-up">
+    <p><strong>Virya Yoga Studio · Ecuador 1511 · Recoleta</strong></p>
+    <p><i class="bi bi-envelope-fill me-2"></i>studio.virya.yoga@gmail.com</p>
+    <p><i class="bi bi-instagram me-2"></i><a href="https://www.instagram.com/virya.yogastudio/" target="_blank">@virya.yogastudio</a></p>
+  </footer>
+
+  <!-- SCRIPTS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
-    AOS.init();
+    AOS.init({ once: true, duration: 800 });
   </script>
 </body>
 </html>
