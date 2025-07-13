@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Virya Yoga Studio – Novedades de Julio</title>
   <link rel="icon" href="assets/img/logo/IMG_9452.PNG" type="image/png" />
+
   <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
   <!-- Fuentes -->
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Montserrat:wght@300;500&display=swap" rel="stylesheet" />
-  <!-- AOS (animaciones) -->
+  <!-- AOS Animaciones -->
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
   <style>
@@ -30,30 +31,36 @@
       font-family: var(--tipografia-texto);
       color: var(--gris-oscuro);
     }
-    /* Navbar clásico */
+    /* Navbar */
     .navbar {
       background: var(--gris-claro);
       border-bottom: 1px solid var(--verde-medio);
       padding: 1rem 2rem;
+      position: relative;
+    }
+    .navbar-brand {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
     }
     .navbar-brand img {
-      height: 45px;
+      height: 60px;
       transition: transform .3s;
     }
     .navbar-brand img:hover {
       transform: scale(1.1);
     }
-    .navbar-text {
+    .navbar-text .badge {
       font-size: .9rem;
-      color: var(--gris-oscuro);
     }
     /* Hero */
     .hero {
       text-align: center;
-      padding: 5rem 1rem;
+      padding: 4rem 1rem;
       font-family: var(--tipografia-titulo);
       position: relative;
       overflow: hidden;
+      background: var(--gris-claro);
     }
     .hero::before {
       content: '';
@@ -69,85 +76,65 @@
       0%,100% { transform: scale(1) rotate(45deg); }
       50% { transform: scale(1.05) rotate(45deg); }
     }
-    .hero h1 {
-      font-size: 3.5rem;
-      margin-bottom: .5rem;
-      z-index: 1;
-      position: relative;
-      opacity: 0;
-      animation: fadeInUp 1.2s ease forwards;
+    .hero img {
+      max-width: 100%;
+      height: auto;
+      border-radius: .75rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,.1);
+      animation: imgIn 0.8s ease-out forwards;
     }
-    .hero p:first-of-type {
-      font-size: 1.35rem;
-      font-weight: 300;
-      color: #7b9689;
-      margin-bottom: .5rem;
-      opacity: 0;
-      animation: fadeInUp 1.2s ease .3s forwards;
+    @keyframes imgIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to   { opacity: 1; transform: scale(1); }
     }
-    .hero p:last-of-type strong {
-      font-size: 1.1rem;
-      color: var(--gris-oscuro);
-      opacity: 0;
-      animation: fadeInUp 1.2s ease .6s forwards;
-      display: inline-block;
-    }
-    @keyframes fadeInUp {
-      from { transform: translateY(30px); opacity: 0; }
-      to   { transform: translateY(0); opacity: 1; }
-    }
-    /* Novedades en cards */
+    /* Cards */
     .cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.5rem;
-      padding: 2rem 0;
+      padding: 2rem 1rem;
     }
     .card-novedad {
       background: white;
       border-left: 4px solid var(--verde-medio);
       border-radius: .75rem;
       box-shadow: 0 4px 20px rgba(0,0,0,.05);
-      transition: transform .4s ease, box-shadow .4s ease;
+      transition: transform .4s, box-shadow .4s;
     }
     .card-novedad:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 30px rgba(0,0,0,.12);
+      transform: translateY(-6px);
+      box-shadow: 0 10px 30px rgba(0,0,0,.1);
     }
     .card-body {
       padding: 1.5rem;
     }
     .card-body h5 {
       font-family: var(--tipografia-titulo);
-      font-size: 1.35rem;
-      margin-bottom: .75rem;
+      font-size: 1.3rem;
       display: flex;
       align-items: center;
       gap: .5rem;
-      color: var(--gris-oscuro);
+      margin-bottom: .75rem;
     }
     .card-body p {
       font-size: .95rem;
-      line-height: 1.6;
+      line-height: 1.5;
       color: #555;
     }
     /* Footer */
     footer {
       background: var(--gris-claro);
-      padding: 2rem;
+      padding: 2rem 1rem;
       text-align: center;
       font-size: .9rem;
       border-top: 1px solid var(--verde-medio);
     }
     footer a {
-      text-decoration: none;
       color: var(--gris-oscuro);
       transition: color .3s;
     }
-    footer a:hover {
-      color: var(--verde-medio);
-    }
-    /* Botón WhatsApp */
+    footer a:hover { color: var(--verde-medio); }
+    /* WhatsApp */
     .whatsapp-btn {
       position: fixed;
       bottom: 2rem;
@@ -163,48 +150,58 @@
       transition: transform .3s;
       z-index: 1000;
     }
-    .whatsapp-btn:hover {
-      transform: scale(1.15);
-    }
+    .whatsapp-btn:hover { transform: scale(1.1); }
   </style>
 </head>
 <body>
 
   <!-- NAVBAR -->
-  <nav class="navbar d-flex justify-content-between align-items-center">
+  <nav class="navbar">
+    <span class="navbar-text">
+      <span class="badge bg-success">
+        <i class="bi bi-calendar-event-fill me-1"></i>
+        Novedades de Julio
+      </span>
+    </span>
     <a href="#" class="navbar-brand">
       <img src="assets/img/logo/IMG_9452.PNG" alt="Virya Yoga Logo">
     </a>
-    <span class="navbar-text">Novedades de Julio</span>
   </nav>
 
-  <!-- HERO -->
+  <!-- HERO (Imagen promo) -->
   <section class="hero">
-    <h1 data-aos="zoom-in">Virya Yoga Studio</h1>
-    <p data-aos="fade-in" data-aos-delay="300">✨ Novedades de julio ✨</p>
-    <p data-aos="fade-in" data-aos-delay="600"><strong>Eventos, talleres y experiencias mensuales</strong></p>
+    <img src="assets/img/hero/promo.png" alt="Promo Virya Yoga" data-aos="zoom-in">
   </section>
 
   <!-- CARDS DE NOVEDADES -->
-  <div class="container">
-    <div class="cards">
-      <div class="card-novedad" data-aos="fade-up">
-        <div class="card-body">
-          <h5><i class="bi bi-moon-stars-fill"></i> Taller de Luna Llena <small class="text-muted ms-auto">21/07</small></h5>
-          <p>Explorá meditación guiada, yoga suave y ceremonia de sonido para soltar y reconectar con tu esencia.</p>
+  <div class="container cards">
+    <!-- Taller Gestantes con collapse -->
+    <div class="card-novedad" data-aos="fade-up">
+      <div class="card-body">
+        <h5><i class="bi bi-moon-stars-fill"></i> Taller Parejas Gestantes <small class="text-muted ms-auto">21/07</small></h5>
+        <p class="mb-2">Herramientas para transitar el trabajo de parto en pareja.</p>
+        <button class="btn btn-sm btn-outline-success" type="button" data-bs-toggle="collapse" data-bs-target="#detalleLunaLlena" aria-expanded="false" aria-controls="detalleLunaLlena">
+          Leer más
+        </button>
+        <div class="collapse mt-3" id="detalleLunaLlena">
+          <p>Un espacio íntimo de 2 hs y media donde vas a conectar profundamente y fortalecer el vínculo en este nuevo camino: vos, tu bebé, tu pareja y la familia que formaron. Viajaremos por diferentes posturas desde la esferodinámica y otros elementos para aprender a transitar el trabajo de parto de a dos en un ambiente seguro y amoroso.</p>
         </div>
       </div>
-      <div class="card-novedad" data-aos="fade-up" data-aos-delay="150">
-        <div class="card-body">
-          <h5><i class="bi bi-flower1"></i> Yoga Restaurativo <small class="text-muted ms-auto">Mié 19:00</small></h5>
-          <p>Clase suave y profunda para liberar tensiones, relajar cuerpo y mente. Cupos limitados.</p>
-        </div>
+    </div>
+
+    <!-- Yoga Restaurativo -->
+    <div class="card-novedad" data-aos="fade-up" data-aos-delay="150">
+      <div class="card-body">
+        <h5><i class="bi bi-flower1"></i> Yoga Restaurativo <small class="text-muted ms-auto">Mié 19:00</small></h5>
+        <p>Clase suave y profunda para liberar tensiones, relajar cuerpo y mente. Cupos limitados.</p>
       </div>
-      <div class="card-novedad" data-aos="fade-up" data-aos-delay="300">
-        <div class="card-body">
-          <h5><i class="bi bi-music-note-beamed"></i> Sound Healing <small class="text-muted ms-auto">Sáb 27/07</small></h5>
-          <p>Inmersión sonora con cuencos tibetanos para desbloquear emociones y alcanzar un estado de paz profunda.</p>
-        </div>
+    </div>
+
+    <!-- Sound Healing -->
+    <div class="card-novedad" data-aos="fade-up" data-aos-delay="300">
+      <div class="card-body">
+        <h5><i class="bi bi-music-note-beamed"></i> Sound Healing <small class="text-muted ms-auto">Sáb 27/07</small></h5>
+        <p>Inmersión sonora con cuencos tibetanos para desbloquear emociones y alcanzar un estado de paz profunda.</p>
       </div>
     </div>
   </div>
