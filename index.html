@@ -248,19 +248,21 @@
 
     .background-logo {
       position: fixed;
-      top: 35%;
+      top: 30%;
       left: 50%;
       transform: translate(-50%, -50%);
-      opacity: 0.12;
+      opacity: 0.18;
+      /* más visible */
       z-index: 0;
-      animation: floatLogo 18s ease-in-out infinite alternate;
+      animation: floatLogo 20s ease-in-out infinite alternate;
       pointer-events: none;
     }
 
     .background-logo img {
-      width: 38vw;
-      max-width: 480px;
-      min-width: 220px;
+      width: 75vw;
+      /* más expandido hacia los costados */
+      max-width: 1000px;
+      min-width: 300px;
       height: auto;
       user-select: none;
     }
